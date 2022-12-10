@@ -10,14 +10,14 @@ let number = +prompt('Введите число');
  console.log(number ** degree);
 
 // 5 задание
-let x = +prompt("userName");
-if (x === "visible") {
-    x = "Visible";
-} else if (x ==="hidden") {
-    x = "hidden";
-} else {x = "userName"
-};
-console.log("userName");
+// Создать переменную color, присвоить ей значение 'red'. C помощью if написать условие: если переменная равна “blue”, присвоить ей значение “red”, иначе - “blue”.
+
+let color = prompt('red');
+if (color == "blue") {
+ alert("red");
+}  else {
+   alert("blue");
+}
 
 // 6 Задание 
 // Создать переменную и присвоить ей число.
@@ -26,22 +26,22 @@ console.log("userName");
 // - если меньше нуля - строку “less then zero”;
 // - если больше нуля - используя оператор “присвоение”, переменную умножить на 10 (использовать краткую запись).
 
-let number = +prompt("Введите число");
+let number = ("4");
  if (number === 0) {
- console.log(number = 1);
+ number = 1;
 } else if (number < 0) {
- console.log(number = "less then zero");
+ number = "less then zero";
  } else {
-   console.log(number *= 10);
+   number *= 10;
  }
+ console.log(number);
 
 //  7 Задание
 
 // Запросите у пользователя число и запишите его в переменную. 
 // (Не забывайте, что от пользователя мы всегда получаем строку).
 // Создайте переменную-результат и присвойте ей значение: если введенное пользователем число меньше 5, то результат будет '0', если больше -  '1'. Выведите результат в консоль.
-   let age = +prompt("Введите ваш возраст");
- let result = age;
+   let result = +prompt("Введите ваш возраст");
   if (result < 5){
  console.log(0);
  }else if (result > 5){
