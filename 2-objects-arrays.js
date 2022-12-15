@@ -43,6 +43,37 @@ let numbers = [42, 65, 49, 68, 56, 47, 70, 42, 51, 35, 58, 63, 40, 70];
 
 for (let i = 0; i < numbers.length; i++) { console.log(`Индексу: ${i} соотвествует число ${numbers[i]} `)
  }
+/*
+ Дан массив объектов, например:
+let questions = [{
+    question: "What's the currency of the USA?",
+    choices: ["US dollar", "Ruble", "Horses", "Gold"],
+    corAnswer: 0
+}, {
+    question: "Where was the American Declaration of Independence signed?",
+    choices: ["Philadelphia", "At the bottom", "Frankie's Pub", "China"],
+    corAnswer: 0
+}];
+Добавить в каждый объект дополнительное поле usersAnswer со значением null.
+Решение должно работать для массива любой длины.*/
+
+let questions = [{
+    question: "What's the currency of the USA?",
+    choices: ["US dollar", "Ruble", "Horses", "Gold"],
+    corAnswer: 0
+}, {
+    question: "Where was the American Declaration of Independence signed?",
+    choices: ["Philadelphia", "At the bottom", "Frankie's Pub", "China"],
+    corAnswer: 0
+}];
+
+for(let i=0; i<questions.length; i++){
+    questions[i].usersAnswer=null;
+    };
+
+   /* questions.forEach(function (i) {
+        i.usersAnswer = null;
+    });*/
 
  /*Задание 6
 Есть массив произвольных чисел:
@@ -103,6 +134,24 @@ for (let i = 0; i < arr.length; i++) {
     }
  }
  console.log(newArr);
+
+/*Задание 8
+ Написать функцию, которая принимает массив (array) и число (num).
+ Функция должна создать новый массив из элементов массива array, и в этом новом массиве должны содержаться только элементы, больше и равные (>=) значению num.*/
+
+const createNewArray = (array, number) => {
+    const newArray = [];
+    for (let i = 0; i < array.length; i++) {
+    if (array[i] >= num) {
+        newArray.push(array [i])
+    }
+        
+    }
+    return newArray;
+}
+
+console.log(createNewArray([3, 67, 2, 4, 699], 10)); 
+console.log([3, 67, 2, 4, 0], 56);
 
 /*Задание 9
 Существует массив пользователей, например:
