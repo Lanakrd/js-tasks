@@ -1,3 +1,22 @@
+/*Задание 1
+Напишите функцию, которая принимает три числовых аргумента: number, min, max.
+Функция проверяет, находится ли число number в диапазоне чисел от min до max.
+1 вариант решения: с помощью логического И в условии.
+*2 вариант решения: с помощью логического ИЛИ в условии.*/
+
+const getNumber = (number, min, max) => {
+    return number > min && number < max;
+};
+
+console.log(getNumber(34, 13, 55));
+
+const getNumber = (number, min, max) => {
+    if(!(number < min || number > max)){
+        return true;
+    }
+}:
+
+
 /*Задание 2
 Есть объект с именами и заработными платами инженеров:
 const engineers = {
@@ -41,7 +60,8 @@ let numbers = [42, 65, 49, 68, 56, 47, 70, 42, 51, 35, 58, 63, 40, 70]
 
 let numbers = [42, 65, 49, 68, 56, 47, 70, 42, 51, 35, 58, 63, 40, 70];
 
-for (let i = 0; i < numbers.length; i++) { console.log(`Индексу: ${i} соотвествует число ${numbers[i]} `)
+for (let i = 0; i < numbers.length; i++) { 
+    console.log(`Индексу: ${i} соотвествует число ${numbers[i]} `)
  }
 /*
  Дан массив объектов, например:
@@ -67,13 +87,11 @@ let questions = [{
     corAnswer: 0
 }];
 
-for(let i=0; i<questions.length; i++){
-    questions[i].usersAnswer=null;
+for(let item of questions){
+    item.userAnswer = null;
     };
 
-   /* questions.forEach(function (i) {
-        i.usersAnswer = null;
-    });*/
+   console.log(questions);
 
  /*Задание 6
 Есть массив произвольных чисел:
@@ -114,10 +132,15 @@ let max = numbers[0];
 
  for (let i = 0; i < numbers.lenght; i++){     
     if (max < numbers[i]) {
-         max = numbers[i]
+         max = numbers[i];
    }
-     console.log(`Максимальное число: ${max} и его  индекс ${i}`)
- };
+};
+
+for (i=0; i < numbers.length; i++){
+    if(max == numbers[i]) {
+        console.log(i);
+    }
+}
 
 
  /*Задание 7
@@ -175,12 +198,18 @@ let vegetables = ["морковь", "баклажан", "репа", "топин�
 Вывести этот массив в консоль.
 Подсказка: длину строки можно определить с помощью метода .length. Например, для переменной let string = 'text' это будет string.length (результат - 4, т.к. слово text состоит из 4 символов)*/
 
-let arr = [
+let vegetables = [
     { word:'морковь' length: 7 }, { word: 'баклажан'length: 8 }, { word:'репа' length: 4}, { word:'топинамбур' length: 10 }
 ];
 
+let newVegetables = [];
+for (let item of vegetables){
+    newVegetables.push({'word': item, 'length': item.length});  
+}
+console.log(newvegetables);
+
 /*2) Пройтись по полученному массиву объектов и вывести в консоль строки вида "слово - длина_слова", например "картошка - 8"*/
 
-for (let i = 0; i < arr.length; i++) {
-    console.log(`Слово ${arr[i].word} длина слова ${arr[i].word.length}`)
+for (let object of newVegetables) {
+    console.log(`Слово ${object.word} длина слова ${object.length}`)
 };

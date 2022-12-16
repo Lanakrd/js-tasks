@@ -10,7 +10,7 @@ access = false;
 }*/
  
 let country = 'Sweden';
-let access = country? true : false;
+let access = Sweden? true : false;
 console.log(access);
 
 /*Задание 2
@@ -26,8 +26,8 @@ for (let i = 10; i <= 10; i++) {
 - запрашивать у пользователя ввод числа
 - проверять, равно ли это число 10. Если равно, выводить "Равно 10". Иначе выводить "Не равно 10"*/
 
-let i = 0;
- for (i; i <= 10; i + 2) {
+
+ for (let i = 0; i <= 10; i + 2) {
     let numberOne = Number(prompt('Введите число  '));
    if (numberOne == 10) {
        alert('Число равно 10')
@@ -38,6 +38,7 @@ let i = 0;
 
 /*4 задание Вывести в консоль квадраты чисел от 0 до 100 (не включая 100) - т.е. вывести числа 0, 1, 4, 9, 16...
 * Задавать количество чисел, которые нужно вывести, при помощи функции prompt.*/
+
 const count = +prompt ('Количество чисел')
 for(let i=0; i < 100; i++) {
 console.log(i ** 2);
@@ -94,14 +95,18 @@ return Math.floor(Math.random() * (max - min)) + min;
 Каждый цвет - 3 числа, каждое число лежит в диапазоне от 0 до 255. 
 Одна функция может вызывать другую функцию*/
 
+function getRandomInteger(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+    };
+
 function getRandomRGB() {
     let r = getRandomInteger(0,255);
     let g = getRandomInteger(0,255);
     let b = getRandomInteger(0,255);
-    console.log(`rgb(${r},${g},${b})`);
-    return Math.floor(Math.random() * (max - min)) + min;
+    return `rgb(${r},${g},${b})`;
+    
      };
-     getRandomRGB();
+     console.log(getRandomRGB());
 
 
      /*Задание 9
@@ -118,9 +123,9 @@ function getRandomRGB() {
 function sum(n) {
     for (let i = 0; i < n; i = i + 0.5) {
        if (i % 1 == 0) {
-                console.log(i, ' integer');
+                console.log(`${i}  integer`);
             } else {
-                console.log(i, ' decimal')
+                console.log(`${i}  decimal`)
             }
        }
      };
