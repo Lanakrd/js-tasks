@@ -154,14 +154,20 @@ function inter(set1, set2) {
 
 Return as a number.
    */
-  function sumMixedArr(arr){
-    let sum =0;
-    arr.map(function(element){
-        sum += parseInt(element);
-    })
-    return sum;
-  }
 
+function divCon(x){
+    let numValue = 0;
+    let strValue = 0;
+    
+    for(let i = 0; i < x.length; i++) {
+      if(typeof(x[i]) === 'string' ) {
+        strValue += parseFloat(x[i]);
+      } else if(typeof(x[i]) === 'number' ) {
+        numValue += x[i];
+      }
+    }
+    return numValue - strValue;
+  }
 
 
   /*Task 10
