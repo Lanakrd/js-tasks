@@ -1,4 +1,5 @@
-/*Take an array and remove every second element from the array. Always keep the first element and start removing with the next element.
+/* Task1
+Take an array and remove every second element from the array. Always keep the first element and start removing with the next element.
 
 Example:
 ["Keep", "Remove", "Keep", "Remove", "Keep", ...] --> ["Keep", "Keep", "Keep", ...]
@@ -15,7 +16,8 @@ function removeEveryOther(arr){
     return result;
   }
 
-/*You get an array of numbers, return the sum of all of the positives ones.
+/* Task 2
+You get an array of numbers, return the sum of all of the positives ones.
 
 Example [1,-4,7,12] => 1 + 7 + 12 = 20
 
@@ -29,10 +31,21 @@ function positiveSum(arr) {
       }
     }
     return sum;
-  }
+  };
 
+  /*Task 3
+  You get an array of numbers, return the sum of all of the positives ones.
 
-  /* Complete the method that takes a sequence of objects with two keys each: country or state, and capital. Keys may be symbols or strings.
+Example [1,-4,7,12] => 1 + 7 + 12 = 20
+
+Note: if there is nothing to sum, the sum is default to 0. */
+
+function positiveSum(arr) {
+    return arr.reduce((a,b)=> a + (b > 0 ? b : 0),0);
+ };
+
+  /* Task 4
+  Complete the method that takes a sequence of objects with two keys each: country or state, and capital. Keys may be symbols or strings.
 
 The method should return an array of sentences declaring the state or country and its capital.
 
@@ -56,7 +69,8 @@ capital(mixed_capitals)[1] // returns "The capital of Spain is Madrid"*/
     });
   };
 
-  /*Return an array containing the numbers from 1 to N, where N is the parametered value.
+  /* Task 5
+  Return an array containing the numbers from 1 to N, where N is the parametered value.
 
 Replace certain values however if any of the following conditions are met:
 
@@ -85,7 +99,8 @@ fizzbuzz(3) -->  [1, 2, "Fizz"] */
   }
 
 
-  /* Simple, given a string of words, return the length of the shortest word(s).
+  /* Task 6
+  Simple, given a string of words, return the length of the shortest word(s).
 
 String will never be empty and you do not need to account for different data types.*/
 
@@ -101,7 +116,22 @@ String will never be empty and you do not need to account for different data typ
     return shortestWordLength;
   }
 
-  /*Create function inter getting 2 sets as arguments and returning a new Set as result of intersection of these 2 sets.
+  /*Task 7 
+  In this kata, you are asked to square every digit of a number and concatenate them.
+
+For example, if we run 9119 through the function, 811181 will come out, because 92 is 81 and 12 is 1.
+
+Note: The function accepts an integer and returns an integer
+  */
+
+function squareDigits(num){
+    return +((num+'').split('').map(value=>value*value).join(''))
+     
+   };
+
+
+  /*Task 8
+  Create function inter getting 2 sets as arguments and returning a new Set as result of intersection of these 2 sets.
 
 Examples:
 A = new Set([1,2]);
@@ -119,4 +149,81 @@ function inter(set1, set2) {
     return result;
   };
 
-  
+  /*Task 9
+  Given a mixed array of number and string representations of integers, add up the non-string integers and subtract this from the total of the string integers.
+
+Return as a number.
+   */
+  function sumMixedArr(arr){
+    let sum =0;
+    arr.map(function(element){
+        sum += parseInt(element);
+    })
+    return sum;
+  }
+
+
+
+  /*Task 10
+  Given an array of integers, find the one that appears an odd number of times.
+
+There will always be only one integer that appears an odd number of times.
+
+Examples
+[7] should return 7, because it occurs 1 time (which is odd).
+[0] should return 0, because it occurs 1 time (which is odd).
+[1,1,2] should return 2, because it occurs 1 time (which is odd).
+[0,1,0,1,0] should return 0, because it occurs 3 times (which is odd).
+[1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which is odd).
+
+  */
+
+  function findOdd(A) {
+    let count = {};
+    A.forEach(v => {
+      count[v] = count[v] ? count[v] + 1 : 1;
+    });
+    return +Object.keys(count).find(key => count[key] % 2 === 1);
+  };
+ 
+  /*Task 11
+  You are given an array (which will have a length of at least 3, but could be very large) containing integers. The array is either entirely comprised of odd integers or entirely comprised of even integers except for a single integer N. Write a method that takes the array as an argument and returns this "outlier" N.
+
+Examples
+[2, 4, 0, 100, 4, 11, 2602, 36]
+Should return: 11 (the only odd number)
+
+[160, 3, 1719, 19, 11, 13, -21]
+Should return: 160 (the only even number) */
+
+  function findOutlier(int){
+    let even = int.filter(a=>a%2==0);
+    let odd = int.filter(a=>a%2!==0);
+    return even.length==1? even[0] : odd[0];
+  };
+
+  /* Task 12
+  zipWith takes a function and two arrays and zips the arrays together, applying the function to every pair of values.
+The function value is one new array.
+
+If the arrays are of unequal length, the output will only be as long as the shorter one.
+(Values of the longer array are simply not used.)
+
+Inputs should not be modified.
+
+Examples
+zipWith( Math.pow, [10,10,10,10], [0,1,2,3] )      =>  [1,10,100,1000]
+zipWith( Math.max, [1,4,7,1,4,7], [4,7,1,4,7,1] )  =>  [4,7,7,4,7,7]
+
+zipWith( function(a,b) { return a+b; }, [0,1,2,3], [0,1,2,3] )  =>  [0,2,4,6]  Both forms are valid.
+zipWith( (a,b) => a+b,                  [0,1,2,3], [0,1,2,3] )  =>  [0,2,4,6]  Both are functions.
+  */
+
+  function zipWith(fn,a0,a1) {
+    let arr = [];
+    const short = Math.min(a0.length, a1.length); 
+    for (let i=0;i<short;i++){
+      arr.push(fn(a0[i],a1[i]))
+    }
+    return arr
+  };
