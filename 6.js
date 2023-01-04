@@ -259,21 +259,17 @@ Be sure to handle passing array indices. For example, if we have an object: { pe
 Also this method should handle invalid paths. If we have an object { user: { name: 'Dan' } } and the path is 'user.wallet.money', we should return undefined. Valid paths are exclusive to properties on the object which are not inherited, in other words it is specific to this object and does not need to look up the prototype chain.
  */
 
-function find(obj, path) {
-  const properties = path.split('.');
-  for (const property of properties) {
-    if (property.match(/\d+/)) {
-      const index = Number(property);
-      obj = obj[index];
-    } else {
-      obj = obj[property];
-    }
+function find(object, path) {
+  path = path.split(".");
 
-    if (obj === undefined) {
+  for (let i = 0; i < path.length; i++) {
+    if (object.hasOwnProperty(path[i])) {
+      object = object[path[i]];
+    } else {
       return undefined;
     }
   }
-  return obj;
+  return object;
 }
 
 
@@ -352,3 +348,20 @@ at 3:00 the angle is: π/2 (90 degrees)
 at 6:00 the angle is: π (180 degrees)
 at 9:00 the angle is: π/2 (90 degrees)
  */
+
+function handAngle (date) {
+  let hour = date.getHours();
+  let min = date.getMinutes();
+  let pi = Math.PI;
+  if (hour === 12) hour = 0;
+  if (hour === 0 && min === 0) return 0.0;
+  let h1 = (hour * 5) / 30 * pi;
+  let h2 = ((hour + 1) * 5) / 30 * pi;
+  let h = h1 + ((h2 - h1) / 60 * min);
+  let m = min/30 * pi;
+  let deg = Math.max(h,m)-Math.min(h,m);
+  if (deg > pi) {
+    deg = 2*pi - deg;
+  }
+	return deg;
+}
