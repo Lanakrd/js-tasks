@@ -17,16 +17,14 @@ function ucFirst(str) {
 Функция должна быть нечувствительна к регистру.
      */
 
-function checkSpam(str) {
-       if (str.includes('badWord') || str.includes('XXX')) {
-        console.log('ошибка')
-             return true
-       } else {
-             return false
-       }
-     }
-     checkSpam('someword');
-
+function checkSpam = (str) => {
+    let newString = str.toLowerCase();
+       return newString.includes("badWord") || newString.includes("xxx");
+};
+        console.log(checkSpam("XxX"));
+        console.log(checkSpam("BadWord"));
+        console.log("sds"); 
+             
      
     
     /* Задание 3
@@ -98,7 +96,7 @@ console.log(unique(strings) ); должен вывести "кришна, хар
 function unique(strings) {
          let arr = [];
          for (let i = 0; i < strings.length; i++) {
-             if (arr.indexOf(strings[i]) == -1) {
+             if (arr.indexOf(strings[i]) === -1) {
                  arr.push(strings[i])
              }
          }
