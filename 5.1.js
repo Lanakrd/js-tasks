@@ -17,13 +17,16 @@ function ucFirst(str) {
 Функция должна быть нечувствительна к регистру.
      */
 
-function checkSpam = (str) => {
-    let newString = str.toLowerCase();
-       return newString.includes("badWord") || newString.includes("xxx");
-};
-        console.log(checkSpam("XxX"));
-        console.log(checkSpam("BadWord"));
-        console.log("sds"); 
+function checkSpam(str) {
+         let newStr = str.toLowerCase();
+         if (newStr.includes('badword') || newStr.includes('xxx')) {
+             return true
+         } else {
+             return false
+         }
+     }
+    
+    checkSpam('you can not say badWord');
              
      
     
