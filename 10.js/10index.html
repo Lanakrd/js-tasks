@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="./10.css">
+   
+</head>
+<body>
+    <div class="gallery">
+        <img src="./image/img1.jpg">
+        <img src="./image/img2.jpg">
+        <img src="./image/img3.jpg">
+        <img src="./image/img4.jpg">
+      </div>
+
+      <script>
+        const images = document.querySelectorAll('.gallery img')
+        let activeIndex = 0
+  
+        function setBackground(image) {
+          document.body.style.backgroundImage = `url(${image.src})`
+          images.forEach((img, index) => {
+            if (img === image) {
+              img.classList.add('active')
+              activeIndex = index
+            } else {
+              img.classList.remove('active')
+            }
+          })
+          localStorage.setItem('activeIndex', activeIndex)
+        }
+  
+        images.forEach((img, index) => {
+          img.addEventListener('click', () => setBackground(img))
+        })
+  
+        const activeIndexStr = localStorage.getItem('activeIndex')
+        if (activeIndexStr !== null) {
+          const savedIndex = parseInt(activeIndexStr)
+          if (!isNaN(savedIndex) && savedIndex >= 0 && savedIndex < images.length) {
+            setBackground(images[savedIndex])
+          }
+        } else {
+          setBackground(images[0])
+        }
+      </script>
+
+      
+      
+</body>
+</html>
