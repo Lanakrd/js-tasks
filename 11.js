@@ -23,14 +23,22 @@ console.log(second);
 
 const names = ["Lana", "Anna", "Kirill", "Maxim", "Victor"];
 
-function printThreeNames(arr, x, y, z) {
-  x = arr[0];
-  y = arr[1];
-  z = arr[2];
-  console.log(x, y, z);
-}
+function names1([firstName, secondName, thirdName]) {
+  console.log(firstName);
+  console.log(secondName);
+  console.log(thirdName);
+   }
 
-printThreeNames(names);
+  names1(arrNames)
+  
+   function names2(arr) {
+  let [firstName, secondName, thirdName] = arr;
+  console.log(firstName);
+  сonsole.log(secondName);
+  console.log(thirdName);
+  }
+
+  names2(arrNames)
 
 
 /*Задание 3

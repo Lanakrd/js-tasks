@@ -1,0 +1,25 @@
+.clock {
+    font-size: 150px;
+    text-align: center;
+    color: #333;
+    border: 10px solid #220ccc;
+    margin-left: 350px;
+    margin-right: 350px;
+  }
+  
+  .clock span {
+    display: inline-block;
+    width: 190px;
+  }
+  
+  .clock .hour {
+    color: rgba(255, 0, 0, 0.895);
+  }
+  
+  .clock .minute {
+    color: rgb(143, 8, 158);
+  }
+  
+  .clock .second {
+    color: rgba(0, 0, 255, 0.905);
+  }
